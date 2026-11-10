@@ -1,16 +1,29 @@
 /* Browser Companion Pet Styling */
 #extension-browser-pet-container {
   position: fixed;
-  bottom: 15px;
-  left: 20px;
-  width: 64px;
-  height: 64px;
+  bottom: 18px;
+  left: 22px;
+  width: 82px;
+  height: 82px;
   z-index: 2147483647;
   cursor: grab;
   user-select: none;
   -webkit-user-drag: none;
   touch-action: none;
   transition: left 0.4s ease-out, top 0.4s ease-out, transform 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#extension-browser-pet-container::before {
+  content: "";
+  position: absolute;
+  inset: 10px 8px 6px 8px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 30% 30%, rgba(255,255,255,0.9), rgba(146, 163, 255, 0.22) 30%, rgba(255, 95, 162, 0.08) 60%, transparent 100%);
+  filter: blur(10px);
+  z-index: -1;
 }
 
 #extension-browser-pet-container.dragging {
@@ -19,34 +32,35 @@
 }
 
 #extension-browser-pet {
-  width: 64px;
-  height: 64px;
+  width: 72px;
+  height: 72px;
   display: block;
   pointer-events: auto;
   user-select: none;
   -webkit-user-drag: none;
-  filter: drop-shadow(0px 4px 6px rgba(0, 0, 0, 0.25));
+  filter: drop-shadow(0 10px 18px rgba(66, 74, 99, 0.2));
   transition: transform 0.2s ease;
+  transform-origin: center bottom;
 }
 
 #extension-browser-pet-container:hover #extension-browser-pet {
-  transform: scale(1.1);
+  transform: scale(1.08) translateY(-2px);
 }
 
 /* Walking bounce animation */
 @keyframes petWalkBounce {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-6px); }
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-7px) rotate(-3deg); }
 }
 
 .pet-walking #extension-browser-pet {
-  animation: petWalkBounce 0.4s infinite ease-in-out;
+  animation: petWalkBounce 0.42s infinite ease-in-out;
 }
 
 /* Sleeping animation (gentle breathe) */
 @keyframes petSleepPulse {
-  0%, 100% { transform: scale(1); }
-  50% { transform: scale(0.95, 0.9); }
+  0%, 100% { transform: scale(1); opacity: 0.9; }
+  50% { transform: scale(0.94, 0.88); opacity: 1; }
 }
 
 .pet-sleeping #extension-browser-pet {
@@ -60,34 +74,36 @@
   pointer-events: none;
   z-index: 2147483647;
   animation: petHeartFloat 1.2s forwards cubic-bezier(0.2, 0.8, 0.2, 1);
+  filter: drop-shadow(0 8px 12px rgba(255, 95, 162, 0.2));
 }
 
 @keyframes petHeartFloat {
   0% {
     opacity: 1;
-    transform: translateY(0) scale(0.6);
+    transform: translateY(0) scale(0.7);
   }
   30% {
     opacity: 1;
-    transform: translateY(-20px) scale(1.2);
+    transform: translateY(-22px) scale(1.3);
   }
   100% {
     opacity: 0;
-    transform: translateY(-60px) scale(0.8);
+    transform: translateY(-62px) scale(0.8);
   }
 }
 
 /* Cute speech / emote bubble */
 .pet-bubble {
   position: fixed;
-  background: rgba(255, 255, 255, 0.95);
-  color: #2b2d42;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-  font-size: 13px;
-  font-weight: 600;
-  padding: 4px 10px;
-  border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  background: linear-gradient(135deg, rgba(255,255,255,0.98), rgba(247, 241, 255, 0.94));
+  color: #2e3a59;
+  font-family: "Segoe UI", Inter, -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  padding: 5px 12px;
+  border-radius: 999px;
+  box-shadow: 0 12px 22px rgba(77, 89, 120, 0.16);
+  border: 1px solid rgba(148, 163, 184, 0.18);
   pointer-events: none;
   z-index: 2147483647;
   white-space: nowrap;
@@ -97,7 +113,7 @@
 @keyframes petBubbleFade {
   0% {
     opacity: 0;
-    transform: translateY(5px) scale(0.8);
+    transform: translateY(6px) scale(0.8);
   }
   15% {
     opacity: 1;
@@ -109,6 +125,6 @@
   }
   100% {
     opacity: 0;
-    transform: translateY(-15px) scale(0.9);
+    transform: translateY(-16px) scale(0.92);
   }
 }
