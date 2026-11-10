@@ -7,75 +7,81 @@
   <link rel="stylesheet" href="popup.css">
 </head>
 <body>
-  <div class="popup-container">
-    <header class="header">
-      <div class="avatar-preview-wrap">
-        <img id="pet-avatar" src="assets/cat.png" alt="Pet Avatar">
-      </div>
-      <div>
-        <h1 class="title">Browser Pet</h1>
-        <p class="subtitle" id="pet-status-text">Your loyal companion</p>
-      </div>
-    </header>
+  <div class="popup-shell">
+    <div class="floating-orb orb-one"></div>
+    <div class="floating-orb orb-two"></div>
 
-    <div class="card status-card">
-      <div class="status-row">
-        <span>Pet Happiness</span>
-        <span id="happiness-val" class="highlight-val">100%</span>
-      </div>
-      <div class="progress-bar">
-        <div class="progress-fill" id="happiness-bar" style="width: 100%;"></div>
-      </div>
-      <button id="feed-btn" class="secondary-btn">🍰 Give Treat (+20 XP)</button>
-    </div>
+    <div class="popup-container">
+      <header class="header">
+        <div class="avatar-preview-wrap">
+          <img id="pet-avatar" src="assets/cat.png" alt="Pet Avatar">
+        </div>
+        <div class="header-copy">
+          <h1 class="title">Browser Pet</h1>
+          <p class="subtitle" id="pet-status-text">Your loyal companion</p>
+          <span class="mood-badge">Happy</span>
+        </div>
+      </header>
 
-    <div class="card section">
-      <label class="toggle-row">
-        <span>Enable Companion</span>
-        <input type="checkbox" id="toggle-enabled" checked>
-        <span class="switch-slider"></span>
-      </label>
-    </div>
-
-    <div class="card section">
-      <label class="section-label" for="select-pet">Choose Pet</label>
-      <div class="pet-selector">
-        <button type="button" class="pet-choice active" data-pet="cat">
-          <span class="pet-icon">🐱</span>
-          <span>Cat</span>
-        </button>
-        <button type="button" class="pet-choice" data-pet="dog">
-          <span class="pet-icon">🐶</span>
-          <span>Dog</span>
-        </button>
-        <button type="button" class="pet-choice" data-pet="dino">
-          <span class="pet-icon">🦖</span>
-          <span>Dino</span>
-        </button>
+      <div class="card status-card">
+        <div class="status-row">
+          <span>Pet Happiness</span>
+          <span id="happiness-val" class="highlight-val">100%</span>
+        </div>
+        <div class="progress-bar">
+          <div class="progress-fill" id="happiness-bar" style="width: 100%;"></div>
+        </div>
+        <button id="feed-btn" class="secondary-btn">🍰 Give Treat (+20 XP)</button>
       </div>
-    </div>
 
-    <div class="card section">
-      <label class="section-label">Behavior Mode</label>
-      <div class="behavior-group">
-        <label class="radio-option">
-          <input type="radio" name="behavior" value="wander" checked>
-          <span>🐾 Screen Wanderer</span>
-        </label>
-        <label class="radio-option">
-          <input type="radio" name="behavior" value="follow">
-          <span>🎯 Cursor Chase</span>
-        </label>
-        <label class="radio-option">
-          <input type="radio" name="behavior" value="sleep">
-          <span>💤 Nap & Relax</span>
+      <div class="card section">
+        <label class="toggle-row">
+          <span>Enable Companion</span>
+          <input type="checkbox" id="toggle-enabled" checked>
+          <span class="switch-slider"></span>
         </label>
       </div>
-    </div>
 
-    <footer class="footer">
-      <span>Tip: Click pet to cuddle, drag anywhere!</span>
-    </footer>
+      <div class="card section">
+        <label class="section-label" for="select-pet">Choose Pet</label>
+        <div class="pet-selector">
+          <button type="button" class="pet-choice active" data-pet="cat">
+            <span class="pet-icon">🐱</span>
+            <span>Cat</span>
+          </button>
+          <button type="button" class="pet-choice" data-pet="dog">
+            <span class="pet-icon">🐶</span>
+            <span>Dog</span>
+          </button>
+          <button type="button" class="pet-choice" data-pet="dino">
+            <span class="pet-icon">🦖</span>
+            <span>Dino</span>
+          </button>
+        </div>
+      </div>
+
+      <div class="card section">
+        <label class="section-label">Behavior Mode</label>
+        <div class="behavior-group">
+          <label class="radio-option">
+            <input type="radio" name="behavior" value="wander" checked>
+            <span>🐾 Screen Wanderer</span>
+          </label>
+          <label class="radio-option">
+            <input type="radio" name="behavior" value="follow">
+            <span>🎯 Cursor Chase</span>
+          </label>
+          <label class="radio-option">
+            <input type="radio" name="behavior" value="sleep">
+            <span>💤 Nap & Relax</span>
+          </label>
+        </div>
+      </div>
+
+      <footer class="footer">
+        <span>Tip: Click pet to cuddle, drag anywhere!</span>
+      </footer>
+    </div>
   </div>
 
   <script src="popup.js"></script>
